@@ -2,3 +2,5 @@
 
 ## Authentication
 ## CRUD Operations
+## Uploading Files
+## Hosting
