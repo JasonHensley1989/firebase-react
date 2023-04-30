@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import Auth from "./components/auth";
 import AddFilm from "./components/AddFilm";
+import DeleteFilm from "./components/DeleteFilm";
 import { auth, db } from "./firebase-config/firebase";
 import { getDocs, collection } from "firebase/firestore";
 import { moviesCollectionRef } from "./firebase-config/firebase";
@@ -38,6 +39,7 @@ function App() {
             <h1>{movie.title}</h1>
             <p>Release Date: {movie.releaseDate}</p>
             {movie.award && <p>AWARD {movie.award}</p>}
+            <button onClick={() => DeleteFilm(movie.id)}>Delete Film</button>
           </div>
         ))}
       </div>
