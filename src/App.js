@@ -39,6 +39,7 @@ function App() {
   return (
     <div className="App">
       <RandomImage className="random-image" />
+      <div className="layeredBackground">
       {!loggedIn && <Auth />}
       {loggedIn &&
         <>
@@ -62,6 +63,8 @@ function App() {
           </div>
         </>
       }
+      </div>
+   
     </div>
   );
 }
