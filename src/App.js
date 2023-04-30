@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import Auth from "./components/auth";
 import AddFilm from "./components/AddFilm";
 import DeleteFilm from "./components/DeleteFilm";
+import UpdateAward from "./components/UpdateAward";
 import { auth, db } from "./firebase-config/firebase";
 import { getDocs, collection } from "firebase/firestore";
 import { moviesCollectionRef } from "./firebase-config/firebase";
@@ -9,6 +10,7 @@ import { moviesCollectionRef } from "./firebase-config/firebase";
 function App() {
 
   const [movieList, setMovieList] = useState([]);
+  const [updateAward, setUpdateAward] = useState(true)
 
   // const moviesCollectionRef = collection(db, "movies");
  const getMovieList = async() => {
@@ -40,6 +42,11 @@ function App() {
             <p>Release Date: {movie.releaseDate}</p>
             {movie.award && <p>AWARD {movie.award}</p>}
             <button onClick={() => DeleteFilm(movie.id)}>Delete Film</button>
+            <div className="updateAward">
+              <input type='checkbox' placeholder="Received Award" onChange={(e) => setUpdateAward(e.target.checked ? "Award Received" : "")}/>
+              <button onClick={() => UpdateAward(movie.id, !movie.award)}>Update Award Status</button>
+            </div>
+            
           </div>
         ))}
       </div>
