@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { auth, googleProvider } from '../firebase-config/firebase';
-import { createUserWithEmailAndPassword, signInWithPopup } from 'firebase/auth';
+import { createUserWithEmailAndPassword, signInWithPopup, signOut } from 'firebase/auth';
 
 const Auth = () => {
   const [email, setEmail] = useState("");
@@ -24,8 +24,12 @@ const Auth = () => {
     }   
   }
 
-  const signOut = () => { 
-    console.log("Click");
+  const handleSignOut = async() => {
+    try {
+        await signOut(auth);
+    } catch(err) {
+        console.error(err);
+    }   
   }
 
 
@@ -35,7 +39,7 @@ const Auth = () => {
         <input placeholder="Password" type="password" className="userInput" onChange={(e) => setPassword(e.target.value)}/>
         <button className="userBtn" onClick={signIn}>Sign In</button>
         <button className="userBtn" onClick={signInWithGoogle}>Sign In With Google</button>
-        <button className="userBtn" onClick={signOut}>Sign Out</button>
+        <button className="userBtn" onClick={handleSignOut}>Sign Out</button>
     </div>
   )
 }
