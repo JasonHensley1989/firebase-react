@@ -75,3 +75,12 @@ body {
   object-fit: cover;
 }
 
+.filmInput {
+  height: 50px;
+  width: 250px;
+  margin: 10px;
+}
+
+label {
+  font-size: 30px;
+}

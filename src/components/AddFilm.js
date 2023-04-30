@@ -24,8 +24,8 @@ const AddFilm = ({ moviesCollectionRef, getMovieList }) => {
   return (
     <div className='form'>
         <form action="">
-            <input type="text" required placeholder='Film Title' onChange={(e) => setNewTitle(e.target.value)}/>
-            <input type="number" required placeholder='Film Release Year' onChange={(e) => setFilmRelease(Number(e.target.value))}/>
+            <input type="text" className='filmInput' required placeholder='Film Title' onChange={(e) => setNewTitle(e.target.value)}/>
+            <input type="number" className='filmInput' required placeholder='Film Release Year' onChange={(e) => setFilmRelease(Number(e.target.value))}/>
             <label>Received Award</label>
             <input type="checkbox" placeholder='Received Award' checked={hasAward} onChange={(e) => setHasAward(e.target.checked)} />
             <button type="button" onClick={onSubmitFilm}>Add To Film List</button>
