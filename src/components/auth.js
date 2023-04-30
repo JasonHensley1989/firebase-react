@@ -10,9 +10,13 @@ const Auth = () => {
 
   const signIn = async() => {
     try {
+      if (email && password) {
         await createUserWithEmailAndPassword(auth, email, password);
+      } else {
+        alert("Please enter your email and password");
+      }
     } catch(err) {
-        console.error(err);
+      console.error(err);
     }   
   }
   
@@ -34,11 +38,13 @@ const Auth = () => {
 
   return (
     <div className='userLogin'>
-        <input placeholder="Email" type="text" className="userInput" onChange={(e) => setEmail(e.target.value)} />
-        <input placeholder="Password" type="password" className="userInput" onChange={(e) => setPassword(e.target.value)}/>
-        <button className="userBtn" onClick={signIn}>Sign In</button>
-        <button className="userBtn" onClick={signInWithGoogle}>Sign In With Google</button>
-        <button className="userBtn" onClick={handleSignOut}>Sign Out</button>
+      <form className='userLogin' noValidate>
+        <input required placeholder="Email" type="text" className="userInput" value={email} onChange={(e) => setEmail(e.target.value)} />
+        <input required placeholder="Password" type="password" className="userInput" value={password} onChange={(e) => setPassword(e.target.value)} />
+        <button className="userBtn" type="button" onClick={signIn}>Sign In</button>
+        <button className="userBtn" type="button" onClick={signInWithGoogle}>Sign In With Google</button>
+        <button className="userBtn" type="button" onClick={handleSignOut}>Sign Out</button>
+      </form>
     </div>
   )
 }

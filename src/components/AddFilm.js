@@ -19,7 +19,6 @@ const AddFilm = ({ moviesCollectionRef, getMovieList }) => {
     } catch(err) {
         console.error(err)
     }
-   
   }
 
   return (
