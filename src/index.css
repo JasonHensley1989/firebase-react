@@ -13,6 +13,10 @@
   text-align: center;
 }
 
+.userBtn {
+  border-radius: 8px;
+}
+
 .form {
   display: flex;
   justify-content: center;
@@ -28,6 +32,12 @@
   display: flex;
   align-items: center;
   flex-direction: column;
+  background-color: rgba(255, 255, 255, 0.5); /* 50% opacity white color */
+  width: 40%;
+  margin: auto;
+  margin-top: 50px;
+  padding-bottom: 50px;
+  border-radius: 8px;
 }
 
 .signOutButton {
@@ -35,6 +45,12 @@
   flex-direction: row-reverse;
   padding-right: 50px;
   padding-top: 30px;
+}
+
+.signOut {
+  height: 30px;
+  border-radius: 8px;
+  background-color: rgba(255, 255, 255, 0.5); /* 50% opacity white color */
 }
 
 html,
