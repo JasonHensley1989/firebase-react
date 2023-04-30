@@ -32,7 +32,6 @@ const Auth = () => {
     }   
   }
 
-
   return (
     <div className='userLogin'>
         <input placeholder="Email" type="text" className="userInput" onChange={(e) => setEmail(e.target.value)} />
