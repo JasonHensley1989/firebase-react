@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import { auth } from '../firebase-config/firebase';
-import { createUserWithEmailAndPassword } from 'firebase/auth';
+import { auth, googleProvider } from '../firebase-config/firebase';
+import { createUserWithEmailAndPassword, signInWithPopup } from 'firebase/auth';
 
 const Auth = () => {
   const [email, setEmail] = useState("");
@@ -13,12 +13,15 @@ const Auth = () => {
         await createUserWithEmailAndPassword(auth, email, password);
     } catch(err) {
         console.error(err);
-    }
-    
+    }   
   }
   
-  const signInWithGoogle = () => {
-    console.log("Click");
+  const signInWithGoogle = async() => {
+    try {
+        await signInWithPopup(auth, googleProvider);
+    } catch(err) {
+        console.error(err);
+    }   
   }
 
   const signOut = () => { 
