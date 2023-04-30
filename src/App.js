@@ -13,7 +13,9 @@ function App() {
     const getMovieList = async() => {
       try {
       const data = await getDocs(moviesCollectionRef);
-      console.log(data);
+      const filteredData = data.docs.map((doc) => ({...doc.data(), id: doc.id,
+      }));
+      setMovieList(filteredData);
       } catch(err) {
         console.error(err);
       }
@@ -26,6 +28,15 @@ function App() {
     <div className="App">
       <h1 className="title">Firebase React</h1>
       <Auth />
+      <div>
+        {movieList.map((movie) => (
+          <div>
+            <h1>{movie.title}</h1>
+            <p>Release Date: {movie.releaseDate}</p>
+            {movie.award && <p>Award {movie.award}</p>}
+          </div>
+        ))}
+      </div>
     </div>
   );
 }
