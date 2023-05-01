@@ -54,7 +54,7 @@ function App() {
   return (
     <div className="App">
       <RandomImage className="random-image" />
-      <h1 className="title">Movie Tracker</h1>
+      <h1 className="title">Film Track</h1>
       <div className="layeredBackground">
         {!loggedIn && <Auth />}
         {loggedIn &&
@@ -77,7 +77,7 @@ function App() {
                 </div>
               ))}
             </div>
-            <FileUpload />
+            {/* <FileUpload /> */}
           </>
         }
       </div>

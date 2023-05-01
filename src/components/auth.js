@@ -42,6 +42,7 @@ const Auth = () => {
   return (
     <div className='loginDiv'>
       <form className='userLogin' noValidate>
+        <h3>Store Your Film Information</h3>
         <input required placeholder="Email" type="text" className="userInput" id='input' value={email} onChange={(e) => setEmail(e.target.value)} />
         <input required placeholder="Password" type="password" className="userInput" id='input2' value={password} onChange={(e) => setPassword(e.target.value)} />
         <button className="userBtn" type="button" onClick={signIn}>Sign In</button>
