@@ -2,6 +2,7 @@
 import { initializeApp } from "firebase/app";
 import { getAuth, GoogleAuthProvider } from 'firebase/auth';
 import { collection, getFirestore } from 'firebase/firestore';
+import { getStorage } from 'firebase/storage';
 
 const firebaseConfig = {
   apiKey: "AIzaSyB30tSZbXAVZ77tQQlVlLQYLnkqyq7ERII",
@@ -22,3 +23,4 @@ export const googleProvider = new GoogleAuthProvider();
 // Database Firestore
 export const db = getFirestore(app);
 export const moviesCollectionRef = collection(db, "movies");
+export const storage = getStorage(app)
