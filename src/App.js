@@ -3,16 +3,18 @@ import Auth from "./components/auth";
 import AddFilm from "./components/AddFilm";
 import DeleteFilm from "./components/DeleteFilm";
 import UpdateAward from "./components/UpdateAward";
-import { auth, db } from "./firebase-config/firebase";
+import { auth, db, storage } from "./firebase-config/firebase";
 import { getDocs, collection } from "firebase/firestore";
 import { moviesCollectionRef } from "./firebase-config/firebase";
 import RandomImage from "./components/RandomImage";
+import { ref, uploadBytes } from 'firebase/storage'
 
 function App() {
 
   const [movieList, setMovieList] = useState([]);
   const [updateAward, setUpdateAward] = useState(true)
   const [loggedIn, setLoggedIn] = useState(false);
+  const [fileUpload, setFileUpload] = useState(null)
 
   const getMovieList = async() => {
     try {
@@ -24,6 +26,18 @@ function App() {
       console.error(err);
     }
   };
+
+  const uploadFile = async () => {
+    if(!fileUpload) return;
+    const filesFolderRef = ref(storage, `projectFiles/${fileUpload.name}`);
+    try {
+      await uploadBytes(filesFolderRef, fileUpload);
+      window.location.reload()
+    } catch(err) {
+      console.error(err)
+    }
+    
+  }
 
   useEffect(() => {
     auth.onAuthStateChanged((user) => {
@@ -60,6 +74,10 @@ function App() {
                 </div>
               </div>
             ))}
+          </div>
+          <div className="fileUpload">
+            <input className="fileInput" type="file" onChange={(e) => setFileUpload(e.target.files[0])}/>
+            <button onClick={uploadFile}>Upload File</button>
           </div>
         </>
       }

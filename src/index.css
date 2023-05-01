@@ -4,6 +4,7 @@
   align-items: center;
   justify-content: center;
   height: 100vh;
+  border: 4px double black;
 }
 
 .userInput, .userBtn {
@@ -38,6 +39,12 @@
   margin-top: 50px;
   padding-bottom: 50px;
   border-radius: 8px;
+  border: 4px double black;
+  text-align: center;
+}
+
+.movieCard:hover {
+  transform: scale(1.2);
 }
 
 .signOutButton {
@@ -115,3 +122,21 @@ button {
   background-color: black;
   color: antiquewhite;
 }
+
+.fileUpload { 
+  background-color: rgba(255, 255, 255, 0.5);;
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+}
+
+.fileUpload button {
+  background-color: black;
+  color: whitesmoke;
+}
+
+.fileUpload {
+  color: whitesmoke;
+  text-align: center;
+}
+
