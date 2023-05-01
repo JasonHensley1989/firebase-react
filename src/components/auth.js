@@ -40,12 +40,12 @@ const Auth = () => {
   }
 
   return (
-    <div>
+    <div className='loginDiv'>
       <form className='userLogin' noValidate>
         <input required placeholder="Email" type="text" className="userInput" id='input' value={email} onChange={(e) => setEmail(e.target.value)} />
         <input required placeholder="Password" type="password" className="userInput" id='input2' value={password} onChange={(e) => setPassword(e.target.value)} />
         <button className="userBtn" type="button" onClick={signIn}>Sign In</button>
-        <button className="userBtn" type="button" onClick={signInWithGoogle}>Sign In With Google</button>
+        <button className="userBtn" type="button" onClick={signInWithGoogle}>Google Sign In</button>
         <button className="userBtn" type="button" onClick={handleSignOut}>Sign Out</button>
       </form>
     </div>

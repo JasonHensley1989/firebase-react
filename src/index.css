@@ -1,3 +1,10 @@
+@import url('https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@1&family=Oswald:wght@200&display=swap');
+
+* {
+  font-family: 'Instrument Serif', serif;
+  /* font-family: 'Oswald', sans-serif; */
+}
+
 .userLogin {
   display: flex;
   flex-direction: column;
@@ -17,12 +24,20 @@
 .userBtn {
   border-radius: 8px;
 }
+.loginDiv {
+  margin: 0px;
+}
 
 .form {
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: row;
+  margin-top: 25px;
+}
+
+.form:hover {
+  transform: scale(1.1);
 }
 
 .updateAward {
@@ -57,7 +72,8 @@
 .signOut {
   height: 30px;
   border-radius: 8px;
-  background-color: rgba(255, 255, 255, 0.5); /* 50% opacity white color */
+  background-color: black;
+  color: whitesmoke;
 }
 
 html,
@@ -90,6 +106,7 @@ body {
 
 label {
   font-size: 30px;
+  margin: 15px;
 }
 
 @media screen and (max-width: 600px) {
@@ -101,6 +118,9 @@ label {
   }
   .signOutButton {
     margin-left: 15%;
+  }
+  .signOut {
+    margin-top: 25px;
   }
   .movieCard {
     text-align: center;
@@ -114,7 +134,7 @@ label {
   background-color: rgba(255, 255, 255, 0.5);
   margin: auto;
   display: flex;
-  margin-top: 200px;
+  margin-top: 40px;
   border-radius: 8px;
 }
 
@@ -136,7 +156,30 @@ button {
 }
 
 .fileUpload {
-  color: whitesmoke;
+  color: black;
   text-align: center;
+  margin: 25px;
+  padding: 10px;
+}
+
+.title {
+  text-align: center;
+  font-size: 52px;
+  margin-bottom: 0px;
+}
+
+input {
+  font-size: 26px;
+}
+
+button {
+  height: 40px;
+  font-size: 22px; 
+}
+
+.checkbox {
+  height: 30px;
+  width: 30px;
+  margin-right: 19px;
 }
 

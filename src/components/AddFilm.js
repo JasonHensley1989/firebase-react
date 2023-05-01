@@ -18,6 +18,7 @@ const AddFilm = ({ moviesCollectionRef, getMovieList }) => {
             userId: auth?.currentUser.uid,
         });
         getMovieList();
+        window.location.reload()
     } catch(err) {
         console.error(err)
     }
@@ -26,13 +27,11 @@ const AddFilm = ({ moviesCollectionRef, getMovieList }) => {
   return (
     <div className='form'>
         <form action="">
-            <div className="signOutButton">
             <button className="signOut" onClick={() => auth.signOut()}>Sign Out</button>
-            </div>
             <input type="text" className='filmInput' required placeholder='Film Title' onChange={(e) => setNewTitle(e.target.value)}/>
             <input type="number" className='filmInput' required placeholder='Film Release Year' onChange={(e) => setFilmRelease(Number(e.target.value))}/>
-            <label>Received Award</label>
-            <input type="checkbox" placeholder='Received Award' checked={hasAward} onChange={(e) => setHasAward(e.target.checked)} />
+            <label>Award</label>
+            <input  className='checkbox'type="checkbox" placeholder='Received Award' checked={hasAward} onChange={(e) => setHasAward(e.target.checked)} />
             <button type="button" onClick={onSubmitFilm}>Add To Film List</button>
         </form>
     </div>
