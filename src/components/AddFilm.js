@@ -1,6 +1,7 @@
 import React from 'react';
 import { useState } from 'react';
 import { addDoc } from 'firebase/firestore';
+import { auth } from '../firebase-config/firebase';
 
 const AddFilm = ({ moviesCollectionRef, getMovieList }) => {
 
@@ -13,7 +14,8 @@ const AddFilm = ({ moviesCollectionRef, getMovieList }) => {
         await addDoc(moviesCollectionRef, {
             title: newTitle,
             releaseDate: filmRelease,
-            award: hasAward
+            award: hasAward,
+            userId: auth?.currentUser.uid,
         });
         getMovieList();
     } catch(err) {
@@ -24,6 +26,9 @@ const AddFilm = ({ moviesCollectionRef, getMovieList }) => {
   return (
     <div className='form'>
         <form action="">
+            <div className="signOutButton">
+            <button className="signOut" onClick={() => auth.signOut()}>Sign Out</button>
+            </div>
             <input type="text" className='filmInput' required placeholder='Film Title' onChange={(e) => setNewTitle(e.target.value)}/>
             <input type="number" className='filmInput' required placeholder='Film Release Year' onChange={(e) => setFilmRelease(Number(e.target.value))}/>
             <label>Received Award</label>

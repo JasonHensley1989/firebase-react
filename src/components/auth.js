@@ -40,7 +40,7 @@ const Auth = () => {
   }
 
   return (
-    <div className='userLogin'>
+    <div>
       <form className='userLogin' noValidate>
         <input required placeholder="Email" type="text" className="userInput" id='input' value={email} onChange={(e) => setEmail(e.target.value)} />
         <input required placeholder="Password" type="password" className="userInput" id='input2' value={password} onChange={(e) => setPassword(e.target.value)} />

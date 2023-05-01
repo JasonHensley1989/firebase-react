@@ -43,9 +43,9 @@ function App() {
       {!loggedIn && <Auth />}
       {loggedIn &&
         <>
-          <div className="signOutButton">
+          {/* <div className="signOutButton">
              <button className="signOut" onClick={() => auth.signOut()}>Sign Out</button>
-          </div>
+          </div> */}
           <AddFilm moviesCollectionRef={moviesCollectionRef} getMovieList={getMovieList}/>
           <div>
             {movieList.map((movie) => (
